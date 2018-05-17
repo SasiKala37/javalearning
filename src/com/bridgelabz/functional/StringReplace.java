@@ -1,4 +1,4 @@
-/*****************************
+/*
  * 
  * Purpose: Replace the string template "Hello <<UserName>>, How are you?"
  * 
@@ -10,34 +10,34 @@
 
 package com.bridgelabz.functional;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
-import com.bridgelabz.utility.*;;
+import com.bridgelabz.utility.Utility;
 
 public class StringReplace 
 {
 	/*
 	 * main() written to test the utility class 
 	 */
-	public static void main(String[] args) throws IOException 
+	public static void main(String[] args) throws IOException  
 	{
-		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		/*
+		 * Instance of the utility class
+		 */
+	    Utility utility=new Utility();
 		/*
 		 * variable is to read input from the user
 		 */
-	    String userName;
+     	String userName;
 		System.out.println("Enter the UserName");
-		userName=br.readLine();
+		userName=utility.br.readLine();
+		
+		
 		/*
 		 * variable output to store returned string by stringReplace method 
 		 */
-		String output=Utility.stringReplace(userName) ;
 		
-		
+		String output=utility.stringReplace(userName) ;
 		System.out.println(output);
-		
 	}
-
 }
