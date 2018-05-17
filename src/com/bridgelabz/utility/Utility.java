@@ -110,5 +110,50 @@ public class Utility
     		System.out.println(2+"^"+i+"="+result);
     	}
     }
+    
+    public double  nthHarmonicValue(String nthTermNumber)
+    {
+    	int n=Integer.parseInt(nthTermNumber);
+    	//this is for big number
+    	//double GAMMA=0.577215664901532;
+    	//return Math.log(n)+GAMMA+(1/2*n)-(1/12*n*n)+(1/120*n*n*n*n);
+    	double result=0.0;
+    	for(int i=1;i<=n;i++)
+    	{
+    		result+=(int)(1/i);
+    	}
+    	return result;
+    }
+    
+    public void primeFactors(String N)
+    {
+    	int n=Integer.parseInt(N);
+    	
+    	for(int i=2;i*i<=n;i++)
+    	{
+    		while(n%i==0)
+    		{
+    			System.out.print(i+"  ");
+    			n=n/i;
+    		}
+    		
+    	}
+    	if(n>1)
+    	{
+    		System.out.print(n);
+    	}
+    }
+   
+    public double findDistance(int x,int y)
+    {
+    	// compute distance to (0, 0)
+    	double dist=Math.sqrt(x*x+y*y);
+    	return dist;
+    }
+    
+    public void findRoots(int a,int b,int c)
+    {
+    	
+    }
 
 }

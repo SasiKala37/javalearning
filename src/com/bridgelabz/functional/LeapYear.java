@@ -23,7 +23,7 @@ public class LeapYear
     	//variable year read the input to check whether the leap year or not  
     	String year=utility.br.readLine();
     	/*
-    	 * to call the inatance funtion to print the leap year or not
+    	 * to call the instance function to print the leap year or not
     	 */
     	String message=utility.leapYearChecker(year);
     	System.out.println(message);
