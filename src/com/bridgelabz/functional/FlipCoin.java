@@ -16,15 +16,9 @@ public class FlipCoin
 {
    public static void main(String args[]) 
    {
-	  /*
-	   * variable noOfFlips takes input as command line argument 
-	   */
-	  int noOfFlips=Integer.parseInt(args[0]);
 	  
-	  /*
-	   * using static function of utility
-	   * printout percentage of head and tail
-	   */
+	  int noOfFlips=Integer.parseInt(args[0]);
+	 
 	  Utility.flipCoin(noOfFlips);
 	  
    }

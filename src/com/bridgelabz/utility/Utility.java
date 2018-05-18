@@ -15,11 +15,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 public class Utility 
 {
-	public BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	public BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
 	
 	
     /**
-     * 
+     * Replace with the String template
      * @param userName
      * @return
      * @throws IOException
@@ -33,23 +33,15 @@ public class Utility
     
     
     /**
-     * 
+     * Calculate the head and tail percentage when flapping the coin randomly 
      * @param noOfFlips
      */
     public static void flipCoin(int noOfFlips) 
 	{
-		/*
-		 * variable heads and tails initialize with 0
-		 */
-		int heads=0; int tails=0;
-		/*
-		 * variable randomNumber initialize with 0 
-	     */
-		double randomNumber=0;
 		
-		/*
-		 * calculating the number of heads and tails 
-		 */
+		int heads=0; int tails=0;
+		
+		double randomNumber=0;
 		
 		for(int i=0;i<=noOfFlips;i++)
 		{
@@ -61,15 +53,15 @@ public class Utility
 				heads++;
 				
 		}
-		//Calculating the percentage of heads and tails
+		
 		double headPerc=(heads*100)/noOfFlips;
 		double tailPerc=(tails*100)/noOfFlips;
-		//print message head and tail percentage
 		System.out.println("Head Percentage: "+headPerc);
 		System.out.println("tail Percentage: "+tailPerc);
 	}
     
     /**
+     * checking given year is leap year or not
      * @param year
      * @return
      * @throws IOException
@@ -103,6 +95,7 @@ public class Utility
     }
     
     /**
+     * printing power of two table
      * @param N
      */
     public void powerOfTwo(String N)
@@ -117,16 +110,15 @@ public class Utility
     }
     
     /**
+     * calculate the nth term number in the harmonic series
      * @param nthTermNumber
      * @return
      */
     public double  nthHarmonicValue(String nthTermNumber)
     {
     	int n=Integer.parseInt(nthTermNumber);
-    	//this is for big number
-    	//double GAMMA=0.577215664901532;
-    	//return Math.log(n)+GAMMA+(1/2*n)-(1/12*n*n)+(1/120*n*n*n*n);
-    	double result=0.0;
+    	
+    	double result=0;
     	for(int i=1;i<=n;i++)
     	{
     		result+=(double)(1/i);
@@ -135,6 +127,7 @@ public class Utility
     }
     
     /**
+     * calculate the prime factors of given number
      * @param N
      */
     public void primeFactors(String N)
@@ -157,18 +150,19 @@ public class Utility
     }
    
     /**
+     * find the distance from (x,y) to (0,0)
      * @param x
      * @param y
      * @return
      */
     public double findDistance(int x,int y)
     {
-    	// compute distance to (0, 0)
     	
     	return Math.sqrt((x*x)+(y*y));
     }
     
     /**
+     * calculate the roots for quadratic equation
      * @param a
      * @param b
      * @param c
@@ -196,8 +190,20 @@ public class Utility
 
     }
     
-    public double  computeWindChill(double temprature,double windpeed) {
-		return  35.74 + 0.6215*temprature + (0.4275*temprature - 35.75) * Math.pow(windpeed, 0.16);
+    /**
+     * Compute the windChill using given formula
+     * @param temprature
+     * @param windpeed
+     * @return
+     */
+    public double  computeWindChill(double temperature,double windSpeed) 
+    {
+		return  35.74 + 0.6215*temperature + (0.4275*temperature - 35.75) * Math.pow(windSpeed, 0.16);
 	}
+    
+    public void randomCouponNumber()
+    {
+    	
+    }
 
 }

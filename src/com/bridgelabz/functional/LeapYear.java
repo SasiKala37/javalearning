@@ -1,6 +1,6 @@
 /*
  * 
- * Purpose: To check whether the given year is leapyear or not
+ * Purpose: To check whether the given year is leap year or not
  * 
  * @author SasiKala
  * @version 1.0
@@ -17,14 +17,11 @@ public class LeapYear
 {
 	public static void main(String[] args) throws IOException 
 	{
-		//Instance of the Utility class
+		
 		Utility utility=new Utility();
     	System.out.println("Enter the year");
-    	//variable year read the input to check whether the leap year or not  
-    	String year=utility.br.readLine();
-    	/*
-    	 * to call the instance function to print the leap year or not
-    	 */
+    	String year=utility.bufferedReader.readLine();
+    	
     	String message=utility.leapYearChecker(year);
     	System.out.println(message);
 	}

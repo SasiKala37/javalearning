@@ -1,3 +1,12 @@
+/*
+ * 
+ * Purpose: prints the prime factors of the number
+ * 
+ * @author SasiKala
+ * @version 1.0
+ * @since 17-05-2018
+ * 
+ */
 package com.bridgelabz.functional;
 
 import java.io.IOException;
@@ -7,12 +16,13 @@ import com.bridgelabz.utility.Utility;
 public class Factors {
 
 	public static void main(String[] args) throws IOException {
-		//Instance of the Utility class
+		
 				Utility utility=new Utility();
 		    	System.out.println("Enter the number");
-		    	//variable year read the input to check whether the leap year or not  
-		    	String N=utility.br.readLine();
+		  
+		    	String N=utility.bufferedReader.readLine();
 		    	System.out.println("Prime factors are:");
+		
 		    	utility.primeFactors(N);
 	}
 
