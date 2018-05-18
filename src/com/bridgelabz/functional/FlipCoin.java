@@ -1,6 +1,6 @@
 /*
  * 
- * Purpose: Flip the coin and find the percentage of head and tail 
+ * Purpose: prints the percentage of head and tail when flip the coin  
  * 
  * @author SasiKala
  * @version 1.0
