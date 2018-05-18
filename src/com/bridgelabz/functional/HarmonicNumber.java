@@ -1,6 +1,6 @@
 /*
  * 
- * Purpose: prints the Nth harmonic value in series  
+ * Purpose: prints the Nth HarmonicValue in series  
  * 
  * @author SasiKala
  * @version 1.0
