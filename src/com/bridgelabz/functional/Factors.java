@@ -20,10 +20,10 @@ public class Factors {
 				Utility utility=new Utility();
 		    	System.out.println("Enter the number");
 		  
-		    	String N=utility.bufferedReader.readLine();
+		    	String number=utility.bufferedReader.readLine();
 		    	System.out.println("Prime factors are:");
 		
-		    	utility.primeFactors(N);
+		    	utility.primeFactors(number);
 	}
 
 }
