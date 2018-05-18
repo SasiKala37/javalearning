@@ -13,31 +13,28 @@ package com.bridgelabz.utility;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 public class Utility 
 {
 	public BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-	/*
-	 * @param input replace with the source string 
-	 */
+	
+	
+    /**
+     * 
+     * @param userName
+     * @return
+     * @throws IOException
+     */
     public  String stringReplace(String userName) throws IOException
     {
-    	
-		/*
-    	 * Static variable to print Hello userName, How are you?
-    	 */
 
-    	 String str1="Hello username, How are you?";
-    	/*
-    	 * variable s to store the replaced string with the actual string
-    	 */
-    	 String s= str1.replaceAll("username", userName);
-    	
-    	 return s;
+    	 String givenString="Hello <<username>>, How are you?";
+    	 return givenString.replaceAll("<<username>>", userName);
     }
     
-    /*
-     * @param noOfFlips the number to flip the coin how many times
+    
+    /**
+     * 
+     * @param noOfFlips
      */
     public static void flipCoin(int noOfFlips) 
 	{
@@ -72,6 +69,11 @@ public class Utility
 		System.out.println("tail Percentage: "+tailPerc);
 	}
     
+    /**
+     * @param year
+     * @return
+     * @throws IOException
+     */
     public String leapYearChecker(String year) throws IOException
     {
     	
@@ -100,10 +102,13 @@ public class Utility
     	
     }
     
+    /**
+     * @param N
+     */
     public void powerOfTwo(String N)
     {
     	int n=Integer.parseInt(N);
-    	double result=0.0;
+    	double result=0;
     	for(int i=0;i<=n;i++)
     	{
     	    result=Math.pow(2,i);
@@ -111,6 +116,10 @@ public class Utility
     	}
     }
     
+    /**
+     * @param nthTermNumber
+     * @return
+     */
     public double  nthHarmonicValue(String nthTermNumber)
     {
     	int n=Integer.parseInt(nthTermNumber);
@@ -120,11 +129,14 @@ public class Utility
     	double result=0.0;
     	for(int i=1;i<=n;i++)
     	{
-    		result+=(int)(1/i);
+    		result+=(double)(1/i);
     	}
     	return result;
     }
     
+    /**
+     * @param N
+     */
     public void primeFactors(String N)
     {
     	int n=Integer.parseInt(N);
@@ -144,16 +156,48 @@ public class Utility
     	}
     }
    
+    /**
+     * @param x
+     * @param y
+     * @return
+     */
     public double findDistance(int x,int y)
     {
     	// compute distance to (0, 0)
-    	double dist=Math.sqrt(x*x+y*y);
-    	return dist;
+    	
+    	return Math.sqrt((x*x)+(y*y));
     }
     
-    public void findRoots(int a,int b,int c)
+    /**
+     * @param a
+     * @param b
+     * @param c
+     */
+    public void findingRoots(int a,int b,int c)
     {
-    	
+    	double delta=(b*b)-(4*a*c);
+    	double rootOfx=(-b)/(2*a);
+    		if(delta>0)
+    		{
+    			double root1Ofx=(-b +Math.sqrt(delta))/(2*a);
+    	    	double root2Ofx=(-b - Math.sqrt(delta))/(2*a);
+    	    	System.out.println("Roots are real and different: "+root1Ofx);
+    	    	System.out.print(root2Ofx);
+    	    	
+    		}
+    		else if(delta==0)
+    		{	
+    			System.out.println("Roots are real and same: "+rootOfx);
+    		}
+    		else
+    		{
+    			System.out.println("Roots are complex: "+(rootOfx)+"+i"+Math.sqrt(Math.abs(delta)));
+    		}
+
     }
+    
+    public double  computeWindChill(double temprature,double windpeed) {
+		return  35.74 + 0.6215*temprature + (0.4275*temprature - 35.75) * Math.pow(windpeed, 0.16);
+	}
 
 }

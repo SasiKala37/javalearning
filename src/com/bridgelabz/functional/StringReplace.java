@@ -16,18 +16,15 @@ import com.bridgelabz.utility.Utility;
 
 public class StringReplace 
 {
-	/*
-	 * main() written to test the utility class 
-	 */
-	public static void main(String[] args) throws IOException  
+	//main() written to test the utility
+	
+	public static  void main(String[] args) throws IOException  
 	{
 		/*
 		 * Instance of the utility class
 		 */
 	    Utility utility=new Utility();
-		/*
-		 * variable is to read input from the user
-		 */
+		//variable is to read input from the user
      	String userName;
 		System.out.println("Enter the UserName");
 		userName=utility.br.readLine();
