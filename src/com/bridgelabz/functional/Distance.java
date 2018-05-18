@@ -1,6 +1,6 @@
 /*
  * 
- * Purpose: prints the Euclidean distance from the point (x, y) to the origin (0, 0).
+ * Purpose: prints the  distance from the point (x, y) to the origin (0, 0).
  * 
  * @author SasiKala
  * @version 1.0
