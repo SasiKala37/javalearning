@@ -1,6 +1,6 @@
 /*
  * 
- * Purpose: prints a table of the powers of 2 that are less than or equal to 2^N.
+ * Purpose: prints a table of the power of 2 that are less than or equal to 2^N.
  * 
  * @author SasiKala
  * @version 1.0
@@ -18,8 +18,7 @@ public class PowerOfTwoTable {
 	public static void main(String[] args) throws IOException 
 	{
 		Utility utility=new Utility();
-    	System.out.println("Enter the number");
-    	//variable year read the input to check whether the leap year or not  
+    	System.out.println("Enter the number");  
     	String N=utility.bufferedReader.readLine();
     	
     	utility.powerOfTwo(N);
