@@ -1,11 +1,17 @@
+/*
+ * 
+ * Purpose: prints the wind chill at the given temperature and wind speed  
+ * 
+ * @author SasiKala
+ * @version 1.0
+ * @since 16-05-2018
+ * 
+ */
+
 package com.bridgelabz.functional;
 
 import com.bridgelabz.utility.Utility;
 
-/**
- * @author bridgelabz
- *
- */
 public class WindChill 
 {
      public static void main(String[] args) {
