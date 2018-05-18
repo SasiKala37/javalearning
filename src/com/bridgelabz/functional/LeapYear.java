@@ -1,6 +1,6 @@
 /*
  * 
- * Purpose: To check whether the given year is leap year or not
+ * Purpose: print the given year is leap year or not
  * 
  * @author SasiKala
  * @version 1.0
