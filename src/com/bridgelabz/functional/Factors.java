@@ -1,4 +1,4 @@
-/*
+/**
  * 
  * Purpose: prints the prime factors of the number
  * 
@@ -9,21 +9,18 @@
  */
 package com.bridgelabz.functional;
 
-import java.io.IOException;
-
 import com.bridgelabz.utility.Utility;
 
 public class Factors {
 
-	public static void main(String[] args) throws IOException {
-		
-				Utility utility=new Utility();
-		    	System.out.println("Enter the number");
-		  
-		    	int number=utility.userInputInteger();
-		    	System.out.println("Prime factors are:");
-		
-		    	utility.primeFactors(number);
+	public static void main(String[] args) {
+
+		Utility utility = new Utility();
+		System.out.println("Enter the number");
+		int number = utility.userInputInteger();
+		System.out.println("Prime factors are:");
+
+		utility.primeFactors(number);
 	}
 
 }
