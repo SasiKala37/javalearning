@@ -20,7 +20,7 @@ public class Factors {
 				Utility utility=new Utility();
 		    	System.out.println("Enter the number");
 		  
-		    	String number=utility.bufferedReader.readLine();
+		    	int number=utility.userInputInteger();
 		    	System.out.println("Prime factors are:");
 		
 		    	utility.primeFactors(number);

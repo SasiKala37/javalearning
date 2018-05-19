@@ -19,7 +19,7 @@ public class PowerOfTwoTable {
 	{
 		Utility utility=new Utility();
     	System.out.println("Enter the number");  
-    	String N=utility.bufferedReader.readLine();
+    	int N=utility.userInputInteger();
     	
     	utility.powerOfTwo(N);
 	}

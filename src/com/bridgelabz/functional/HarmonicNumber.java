@@ -20,7 +20,7 @@ public class HarmonicNumber
 		Utility utility=new Utility();
 		
     	System.out.println("Enter the harmonic value N ");  
-    	String nthTermNumber=utility.bufferedReader.readLine();
+    	int nthTermNumber=utility.userInputInteger();
     	
     	double result=utility.nthHarmonicValue(nthTermNumber);
     	System.out.println(result+" nth Harmonic value");

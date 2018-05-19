@@ -20,9 +20,9 @@ public class LeapYear
 		
 		Utility utility=new Utility();
     	System.out.println("Enter the year");
-    	String year=utility.bufferedReader.readLine();
+    	String year=utility.userInputString();
     	
-    	String message=utility.leapYearChecker(year);
+    	String message=Utility.leapYearChecker(year);
     	System.out.println(message);
 	}
 

@@ -12,16 +12,17 @@ package com.bridgelabz.functional;
 
 import com.bridgelabz.utility.Utility;
 
-public class WindChill 
-{
-     public static void main(String[] args) {
-    	
-		double temperature=Double.parseDouble(args[0]);
-		double windSpeed=Double.parseDouble(args[1]);
-		Utility utility=new Utility();
-		double windChill=utility.computeWindChill(temperature, windSpeed);
-		 String MY_MESSAGE="Wind chill: "+windChill; 
-	     System.out.println(MY_MESSAGE);
+public class WindChill {
+	public static void main(String[] args) {
+
+		double temperature = Double.parseDouble(args[0]);
+		double windSpeed = Double.parseDouble(args[1]);
+		double windChill = Utility.computeWindChill(temperature, windSpeed);
+		if (temperature < 50 && (windSpeed > 3 || windSpeed < 120)) {
+		String myMessage= "Wind chill: " + windChill;
+			System.out.println(myMessage);
+		} else {
+			System.out.println("formula is not valid");
+		}
 	}
 }
-

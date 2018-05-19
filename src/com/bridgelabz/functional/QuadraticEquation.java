@@ -20,12 +20,9 @@ public class QuadraticEquation {
 		Utility utility=new Utility();
 
 		System.out.println("Enter the a, b, c values");
-		String number1=utility.bufferedReader.readLine();
-		int a=Integer.parseInt(number1);
-		String number2=utility.bufferedReader.readLine();
-		int b=Integer.parseInt(number2);
-		String number3=utility.bufferedReader.readLine();
-		int c=Integer.parseInt(number3);
+		int a=utility.userInputInteger();
+		int b=utility.userInputInteger();
+		int c=utility.userInputInteger();
 		
 		utility.findingRoots(a, b, c);
 		

@@ -24,7 +24,7 @@ public class StringReplace
 		
      	String userName;
 		System.out.println("Enter the UserName");
-		userName=utility.bufferedReader.readLine();
+		userName=utility.userInputString();
 		
 		String output=utility.stringReplace(userName) ;
 		System.out.println(output);
