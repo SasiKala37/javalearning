@@ -1,5 +1,4 @@
-/*
- * 
+/** 
  * Purpose: To find the roots of the quadratic equation
  * 
  * @author SasiKala
@@ -9,23 +8,19 @@
  */
 package com.bridgelabz.functional;
 
-import java.io.IOException;
-
 import com.bridgelabz.utility.Utility;
 
 public class QuadraticEquation {
 
-	public static void main(String[] args) throws IOException
-	{
-		Utility utility=new Utility();
+	public static void main(String[] args) {
+		Utility utility = new Utility();
 
 		System.out.println("Enter the a, b, c values");
-		int a=utility.userInputInteger();
-		int b=utility.userInputInteger();
-		int c=utility.userInputInteger();
-		
-		utility.findingRoots(a, b, c);
-		
+		int a = utility.userInputInteger();
+		int b = utility.userInputInteger();
+		int c = utility.userInputInteger();
+
+		Utility.findingRoots(a, b, c);
 
 	}
 
