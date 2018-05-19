@@ -213,6 +213,12 @@ public class Utility {
 		return count;
 	}
 
+    /**
+     * calculate the percentage of win and loss  gambler 
+     * @param stake
+     * @param goal
+     * @param numberOfTrails
+     */
     public static void gamblGoal(int stake,int goal, int numberOfTrails ) {
 	
 
@@ -239,6 +245,12 @@ public class Utility {
         System.out.println("Avg # bets           = " + (1.0 * bets) / numberOfTrails);
     }
 
+	/**
+	 * calculate the permutation of string using iterative meathod
+	 * @param input
+	 * @param startIndex
+	 * @param endIndex
+	 */
 	public static void permutation(String input,int startIndex, int endIndex) {
 		   if(startIndex==endIndex) {
 			   System.out.println(input);
@@ -251,6 +263,13 @@ public class Utility {
 			   }
 		   }
 	}
+	/**
+	 * Swap the string based on index
+	 * @param input
+	 * @param startIndex
+	 * @param position
+	 * @return
+	 */
 	public static String swapInputString(String input, int startIndex,int position) {
 		char[] charArray=input.toCharArray();
 		char temp;
@@ -260,6 +279,10 @@ public class Utility {
 		
 		return String.valueOf(charArray);
 	}
+	/**
+	 * compute the elapsed time using stop watch 
+	 * @return
+	 */
 	public  long findElapseTime() {
 		System.out.println(" the start time, type start");
 		userInputString();
@@ -268,6 +291,10 @@ public class Utility {
 		userInputString();
 		return System.currentTimeMillis()-startTime;
 	}
+	/**
+	 * calculating triplet sum using array values
+	 * @param tripletSum
+	 */
 	public void sumOfTriplets(int tripletSum) {
 		int count=0;
 		System.out.println("Enter the array of integers");
@@ -289,8 +316,13 @@ public class Utility {
 		 }
 		 System.out.println("Number of triplets: "+count);
 	 }
-	 
-	 public void readArrayOfIntegers(int rowSize,int columnSize) {
+	
+	 /**
+     * Read the 2D integer array from the user and print the array of elements
+	 * @param rowSize
+	 * @param columnSize
+	 */
+	public void readArrayOfIntegers(int rowSize,int columnSize) {
 		 int array[][]=new int[rowSize][columnSize];
 		 System.out.println("Read the integer array values");
 		 for(int i=0;i<rowSize;i++) {
@@ -306,7 +338,12 @@ public class Utility {
 			 System.out.println();
 		 }
 	 }
-	 public void readArrayOfDouble(int rowSize,int columnSize) {
+	 /**
+	 * Read the 2D double array from the user and print the array of elements
+	 * @param rowSize
+	 * @param columnSize
+	 */
+	public void readArrayOfDouble(int rowSize,int columnSize) {
 		 double array[][]=new double[rowSize][columnSize];
 		 System.out.println("Read the double type array values");
 		 for(int i=0;i<rowSize;i++) {
@@ -322,7 +359,12 @@ public class Utility {
 			 System.out.println();
 		 }
 	 }
-	 public void readArrayOfBoolean(int rowSize,int columnSize) {
+	 /**
+	 * Read the 2D boolean array from the user and print the array of elements 
+	 * @param rowSize
+	 * @param columnSize
+	 */
+	public void readArrayOfBoolean(int rowSize,int columnSize) {
 		 boolean array[][]=new boolean[rowSize][columnSize];
 		 System.out.println("Read the boolean type array values");
 		 for(int i=0;i<rowSize;i++) {
