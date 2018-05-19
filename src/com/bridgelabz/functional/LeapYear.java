@@ -9,21 +9,17 @@
  */
 package com.bridgelabz.functional;
 
-import java.io.IOException;
-
 import com.bridgelabz.utility.Utility;
 
-public class LeapYear 
-{
-	public static void main(String[] args) throws IOException 
-	{
-		
-		Utility utility=new Utility();
-    	System.out.println("Enter the year");
-    	String year=utility.userInputString();
-    	
-    	String message=Utility.leapYearChecker(year);
-    	System.out.println(message);
+public class LeapYear {
+	public static void main(String[] args) {
+
+		Utility utility = new Utility();
+		System.out.println("Enter the year");
+		String year = utility.userInputString();
+
+		String message = Utility.leapYearChecker(year);
+		System.out.println(message);
 	}
 
 }
