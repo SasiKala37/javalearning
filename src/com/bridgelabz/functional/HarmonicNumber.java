@@ -22,7 +22,7 @@ public class HarmonicNumber
     	System.out.println("Enter the harmonic value N ");  
     	int nthTermNumber=utility.userInputInteger();
     	
-    	double result=utility.nthHarmonicValue(nthTermNumber);
+    	double result=Utility.nthHarmonicValue(nthTermNumber);
     	System.out.println(result+" nth Harmonic value");
         		
 	}
