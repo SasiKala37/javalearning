@@ -3,7 +3,7 @@
  * 
  * @author SasiKala
  * @version 1.0
- * @since 16-05-2018
+ * @since 19-05-2018
  * 
  */
 package com.bridgelabz.functional;
@@ -19,6 +19,7 @@ public class StandardArray {
 		int rowSize = utility.userInputInteger();
 		System.out.println("Enter the column size of array");
 		int columnSize = utility.userInputInteger();
+		
 		utility.readArrayOfIntegers(rowSize, columnSize);
 		utility.readArrayOfDouble(rowSize, columnSize);
 		utility.readArrayOfBoolean(rowSize, columnSize);
