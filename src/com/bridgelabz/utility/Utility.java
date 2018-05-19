@@ -15,22 +15,27 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Utility {
-	public Scanner scanner=new Scanner(System.in);
-    public  String userInputString() {
-    	return scanner.next();
-    }
-    public int userInputInteger()
-    {
-    	return scanner.nextInt();
-    }
-    public Double userInputDouble() {
-    	return scanner.nextDouble();
-    }
-    public boolean userInputBoolean() {
-    	return scanner.nextBoolean();
-    }
+	public Scanner scanner = new Scanner(System.in);
+
+	public String userInputString() {
+		return scanner.next();
+	}
+
+	public int userInputInteger() {
+		return scanner.nextInt();
+	}
+
+	public Double userInputDouble() {
+		return scanner.nextDouble();
+	}
+
+	public boolean userInputBoolean() {
+		return scanner.nextBoolean();
+	}
+
 	/**
 	 * Replace with the String template
+	 * 
 	 * @param userName
 	 * @return
 	 * @throws IOException
@@ -43,6 +48,7 @@ public class Utility {
 
 	/**
 	 * Calculate the head and tail percentage when flapping the coin randomly
+	 * 
 	 * @param noOfFlips
 	 */
 	public static void flipCoin(int noOfFlips) {
@@ -139,6 +145,7 @@ public class Utility {
 
 	/**
 	 * find the distance from (x,y) to (0,0)
+	 * 
 	 * @param x
 	 * @param y
 	 * @return
@@ -148,8 +155,9 @@ public class Utility {
 	}
 
 	/**
-	 * calculate the roots for quadratic equation
-	 * given quadratic equation a*x*x+b*x+c                    
+	 * calculate the roots for quadratic equation given quadratic equation
+	 * a*x*x+b*x+c
+	 * 
 	 * @param a
 	 * @param b
 	 * @param c
@@ -213,177 +221,185 @@ public class Utility {
 		return count;
 	}
 
-    /**
-     * calculate the percentage of win and loss  gambler 
-     * @param stake
-     * @param goal
-     * @param numberOfTrails
-     */
-    public static void gamblGoal(int stake,int goal, int numberOfTrails ) {
-	
+	/**
+	 * calculate the percentage of win and loss gambler
+	 * 
+	 * @param stake
+	 * @param goal
+	 * @param numberOfTrails
+	 */
+	public static void gamblGoal(int stake, int goal, int numberOfTrails) {
 
-        int bets = 0;        // total number of bets made
-        int wins = 0;        // total number of games won
+		int bets = 0; // total number of bets made
+		int wins = 0; // total number of games won
 
-        for (int t = 0; t < numberOfTrails; t++) {
+		for (int t = 0; t < numberOfTrails; t++) {
 
-            while (stake > 0 && stake < goal) {
-                bets++;
-                if (Math.random() < 0.5) {
-                	stake++;     
-                }
-                else {
-                	stake--;    
-                }
-            }
-            if (stake== goal) {
-            	wins++;    
-            }
-        }
-        System.out.println(wins + " wins of " + numberOfTrails);
-        System.out.println("Percentage of games won = " + (100.0 * wins) / numberOfTrails);
-        System.out.println("Avg # bets           = " + (1.0 * bets) / numberOfTrails);
-    }
+			while (stake > 0 && stake < goal) {
+				bets++;
+				if (Math.random() < 0.5) {
+					stake++;
+				} else {
+					stake--;
+				}
+			}
+			if (stake == goal) {
+				wins++;
+			}
+		}
+		System.out.println(wins + " wins of " + numberOfTrails);
+		System.out.println("Percentage of games won = " + (100.0 * wins) / numberOfTrails);
+		System.out.println("Avg # bets           = " + (1.0 * bets) / numberOfTrails);
+	}
 
 	/**
 	 * calculate the permutation of string using iterative meathod
+	 * 
 	 * @param input
 	 * @param startIndex
 	 * @param endIndex
 	 */
-	public static void permutation(String input,int startIndex, int endIndex) {
-		   if(startIndex==endIndex) {
-			   System.out.println(input);
-		   }
-		   else {
-			   for(int i=startIndex;i<=endIndex;i++) {
-				   input=swapInputString(input,startIndex,i);
-				   permutation(input, startIndex+1, endIndex);
-				   input=swapInputString(input,startIndex,i);
-			   }
-		   }
+	public static void permutation(String input, int startIndex, int endIndex) {
+		if (startIndex == endIndex) {
+			System.out.println(input);
+		} else {
+			for (int i = startIndex; i <= endIndex; i++) {
+				input = swapInputString(input, startIndex, i);
+				permutation(input, startIndex + 1, endIndex);
+				input = swapInputString(input, startIndex, i);
+			}
+		}
 	}
+
 	/**
 	 * Swap the string based on index
+	 * 
 	 * @param input
 	 * @param startIndex
 	 * @param position
 	 * @return
 	 */
-	public static String swapInputString(String input, int startIndex,int position) {
-		char[] charArray=input.toCharArray();
+	public static String swapInputString(String input, int startIndex, int position) {
+		char[] charArray = input.toCharArray();
 		char temp;
-		temp=charArray[startIndex];
-		charArray[startIndex]=charArray[position];
-		charArray[position]=temp;
-		
+		temp = charArray[startIndex];
+		charArray[startIndex] = charArray[position];
+		charArray[position] = temp;
+
 		return String.valueOf(charArray);
 	}
+
 	/**
-	 * compute the elapsed time using stop watch 
+	 * compute the elapsed time using stop watch
+	 * 
 	 * @return
 	 */
-	public  long findElapseTime() {
+	public long findElapseTime() {
 		System.out.println(" the start time, type start");
 		userInputString();
-		long startTime=System.currentTimeMillis();
+		long startTime = System.currentTimeMillis();
 		System.out.println("The end time, type end ");
 		userInputString();
-		return System.currentTimeMillis()-startTime;
+		return System.currentTimeMillis() - startTime;
 	}
+
 	/**
 	 * calculating triplet sum using array values
+	 * 
 	 * @param tripletSum
 	 */
 	public void sumOfTriplets(int tripletSum) {
-		int count=0;
+		int count = 0;
 		System.out.println("Enter the array of integers");
-		int[] arrayOfIntegers=new int[6];
-		for(int r=0;r<arrayOfIntegers.length;r++)
-			{
-				arrayOfIntegers[r]=userInputInteger();
+		int[] arrayOfIntegers = new int[6];
+		for (int r = 0; r < arrayOfIntegers.length; r++) {
+			arrayOfIntegers[r] = userInputInteger();
+		}
+
+		for (int i = 0; i < arrayOfIntegers.length - 2; i++) {
+			for (int j = i + 1; i < arrayOfIntegers.length - 1; j++) {
+				for (int k = j + 1; k < arrayOfIntegers.length; k++) {
+					if ((arrayOfIntegers[i] + arrayOfIntegers[j] + arrayOfIntegers[k]) == tripletSum) {
+						count++;
+						System.out.println(arrayOfIntegers[i] + "  " + arrayOfIntegers[j] + "  " + arrayOfIntegers[k]);
+					}
+				}
 			}
-			
-		 for(int i=0;i<arrayOfIntegers.length-2;i++) {
-			 for(int j=i+1;i<arrayOfIntegers.length-1;j++) {
-				 for(int k=j+1;k<arrayOfIntegers.length;k++) {
-					 if((arrayOfIntegers[i]+arrayOfIntegers[j]+arrayOfIntegers[k])==tripletSum) {
-						 count++;
-						 System.out.println(arrayOfIntegers[i]+"  "+arrayOfIntegers[j]+"  "+arrayOfIntegers[k]);
-					 }
-				 }
-			 }
-		 }
-		 System.out.println("Number of triplets: "+count);
-	 }
-	
-	 /**
-     * Read the 2D integer array from the user and print the array of elements
+		}
+		System.out.println("Number of triplets: " + count);
+	}
+
+	/**
+	 * Read the 2D integer array from the user and print the array of elements
+	 * 
 	 * @param rowSize
 	 * @param columnSize
 	 */
-	public void readArrayOfIntegers(int rowSize,int columnSize) {
-		 int array[][]=new int[rowSize][columnSize];
-		 System.out.println("Read the integer array values");
-		 for(int i=0;i<rowSize;i++) {
-			 for(int j=0;j<columnSize;j++) {
-				 array[i][j]=userInputInteger();
-			 }
-		 }
-		 System.out.println("Print the Array of integers");
-		 for(int i=0;i<rowSize;i++) {
-			 for(int j=0;j<columnSize;j++) {
-				 System.out.print(array[i][j]+" ");
-			 }
-			 System.out.println();
-		 }
-	 }
-	 /**
+	public void readArrayOfIntegers(int rowSize, int columnSize) {
+		int array[][] = new int[rowSize][columnSize];
+		System.out.println("Read the integer array values");
+		for (int i = 0; i < rowSize; i++) {
+			for (int j = 0; j < columnSize; j++) {
+				array[i][j] = userInputInteger();
+			}
+		}
+		System.out.println("Print the Array of integers");
+		for (int i = 0; i < rowSize; i++) {
+			for (int j = 0; j < columnSize; j++) {
+				System.out.print(array[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+
+	/**
 	 * Read the 2D double array from the user and print the array of elements
+	 * 
 	 * @param rowSize
 	 * @param columnSize
 	 */
-	public void readArrayOfDouble(int rowSize,int columnSize) {
-		 double array[][]=new double[rowSize][columnSize];
-		 System.out.println("Read the double type array values");
-		 for(int i=0;i<rowSize;i++) {
-			 for(int j=0;j<columnSize;j++) {
-				 array[i][j]=userInputDouble();
-			 }
-		 }
-		 System.out.println("Print the Array of double values");
-		 for(int i=0;i<rowSize;i++) {
-			 for(int j=0;j<columnSize;j++) {
-				 System.out.print(array[i][j]+" ");
-			 }
-			 System.out.println();
-		 }
-	 }
-	 /**
-	 * Read the 2D boolean array from the user and print the array of elements 
+	public void readArrayOfDouble(int rowSize, int columnSize) {
+		double array[][] = new double[rowSize][columnSize];
+		System.out.println("Read the double type array values");
+		for (int i = 0; i < rowSize; i++) {
+			for (int j = 0; j < columnSize; j++) {
+				array[i][j] = userInputDouble();
+			}
+		}
+		System.out.println("Print the Array of double values");
+		for (int i = 0; i < rowSize; i++) {
+			for (int j = 0; j < columnSize; j++) {
+				System.out.print(array[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+
+	/**
+	 * Read the 2D boolean array from the user and print the array of elements
+	 * 
 	 * @param rowSize
 	 * @param columnSize
 	 */
-	public void readArrayOfBoolean(int rowSize,int columnSize) {
-		 boolean array[][]=new boolean[rowSize][columnSize];
-		 System.out.println("Read the boolean type array values");
-		 for(int i=0;i<rowSize;i++) {
-			 for(int j=0;j<columnSize;j++) {
-				 array[i][j]=userInputBoolean();
-			 }
-		 }
-		 System.out.println("Print the Array of boolean values");
-		 for(int i=0;i<rowSize;i++) {
-			 for(int j=0;j<columnSize;j++) {
-				 if(array[i][j]) {
-					 System.out.print("1 ");
-				 }else {
-					 System.out.print("0 ");
-				 }
-			 }
-			 System.out.println();
-		 }
-	 }
+	public void readArrayOfBoolean(int rowSize, int columnSize) {
+		boolean array[][] = new boolean[rowSize][columnSize];
+		System.out.println("Read the boolean type array values");
+		for (int i = 0; i < rowSize; i++) {
+			for (int j = 0; j < columnSize; j++) {
+				array[i][j] = userInputBoolean();
+			}
+		}
+		System.out.println("Print the Array of boolean values");
+		for (int i = 0; i < rowSize; i++) {
+			for (int j = 0; j < columnSize; j++) {
+				if (array[i][j]) {
+					System.out.print("1 ");
+				} else {
+					System.out.print("0 ");
+				}
+			}
+			System.out.println();
+		}
+	}
 
 }
-

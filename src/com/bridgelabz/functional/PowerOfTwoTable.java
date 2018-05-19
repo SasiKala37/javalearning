@@ -9,19 +9,16 @@
  */
 package com.bridgelabz.functional;
 
-import java.io.IOException;
-
 import com.bridgelabz.utility.Utility;
 
 public class PowerOfTwoTable {
 
-	public static void main(String[] args) throws IOException 
-	{
-		Utility utility=new Utility();
-    	System.out.println("Enter the number");  
-    	int N=utility.userInputInteger();
-    	
-    	utility.powerOfTwo(N);
+	public static void main(String[] args) {
+		Utility utility = new Utility();
+		System.out.println("Enter the number");
+		int N = utility.userInputInteger();
+
+		Utility.powerOfTwo(N);
 	}
 
 }
