@@ -1,5 +1,4 @@
-/*
- * 
+/** 
  * Purpose: prints the percentage of head and tail when flip the coin  
  * 
  * @author SasiKala

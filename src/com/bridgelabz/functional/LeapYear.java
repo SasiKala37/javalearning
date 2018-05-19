@@ -1,5 +1,4 @@
-/*
- * 
+/** 
  * Purpose: print the given year is leap year or not
  * 
  * @author SasiKala

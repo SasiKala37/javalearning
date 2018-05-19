@@ -1,4 +1,4 @@
-/*
+/**
  * Purpose: prints the 2D array of different data types  
  * 
  * @author SasiKala

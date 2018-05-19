@@ -1,5 +1,4 @@
-/*
- * 
+/** 
  * Purpose: prints a table of the power of 2 that are less than or equal to 2^N.
  * 
  * @author SasiKala

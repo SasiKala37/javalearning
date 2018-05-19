@@ -1,5 +1,4 @@
-/*
- * 
+/** 
  * Purpose: Replace the string template "Hello <<UserName>>, How are you?"
  * 
  * @author SasiKala

@@ -1,5 +1,4 @@
-/*
- * 
+/** 
  * Purpose: prints the Nth HarmonicValue in series  
  * 
  * @author SasiKala

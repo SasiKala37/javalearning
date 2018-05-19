@@ -1,4 +1,4 @@
-/* 
+/**
 * Purpose: prints the win and loss percentage of gambler
 * 
 * @author SasiKala
