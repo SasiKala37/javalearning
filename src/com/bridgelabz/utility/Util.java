@@ -291,7 +291,8 @@ public class Util {
 	}
 
 	/**
-	 *  guessing the number to enter true or false answer 
+	 * guessing the number to enter true or false answer
+	 * 
 	 * @param low
 	 * @param high
 	 * @return
@@ -310,6 +311,8 @@ public class Util {
 	}
 
 	/**
+	 * to find the word in file using binary search technique
+	 * 
 	 * @param searchString
 	 * @throws IOException
 	 */
@@ -348,6 +351,8 @@ public class Util {
 	}
 
 	/**
+	 * Merge the two sub arrays
+	 * 
 	 * @param inputArray
 	 * @param low
 	 * @param mid
@@ -403,6 +408,8 @@ public class Util {
 	}
 
 	/**
+	 * Sort the String
+	 * 
 	 * @param inputArray
 	 * @param low
 	 * @param high
@@ -422,6 +429,8 @@ public class Util {
 	}
 
 	/**
+	 * Print the array elements
+	 * 
 	 * @param inputArray
 	 */
 	public static void printArray(String[] inputArray) {
@@ -431,20 +440,94 @@ public class Util {
 	}
 
 	public static void findDenoomination(int[] notesArray, int amount) {
-		int[] result=new int[notesArray.length];
+		int[] result = new int[notesArray.length];
 		for (int i = 0; i < notesArray.length; i++) {
-			while(amount>=notesArray[i]) {
-				amount-=notesArray[i];
-				result[i]=notesArray[i];	
+			while (amount >= notesArray[i]) {
+				amount -= notesArray[i];
+				result[i] = notesArray[i];
 			}
-			
+
 		}
 		for (int i = 0; i < result.length; i++) {
 			System.out.println(result[i]);
 		}
-		
+
+	}
+
+	/**
+	 * convert celsius to fahrenheit temperature
+	 * 
+	 * @param temperatureInCelsius
+	 * @return
+	 */
+	public static double celsiusToFahrenheit(double temperatureInCelsius) {
+		return (temperatureInCelsius * 9 / 5) + 32;
+	}
+
+	/**
+	 * convertfahrenheit to celsius temperature
+	 * 
+	 * @param temperatureInFahrenheit
+	 * @return
+	 */
+	public static double fahrenheitToCelsius(double temperatureInFahrenheit) {
+		return (temperatureInFahrenheit - 32) * 5 / 9;
+	}
+
+	public static double paymentCalculation(double principleAmount, double rateOfIntrest, double year) {
+		double r = rateOfIntrest / (12 * 100);
+		double n = 12 * year;
+		double power = Math.pow((1 + r), (-n));
+		return (principleAmount * r) / (1 - power);
+
+	}
+
+	public static void sqrt(double c) {
+		double epsilon = 1e-15;
+		double t = c;
+
+		while (Math.abs(t - c / t) > epsilon * t) {
+			t = (c / t + t) / 2.0;
+		}
+		System.out.println(t);
 	}
 	
-	
+	public  void caleder() {
+		boolean keepGoing = true;
 
+	     while(keepGoing) {
+	       System.out.println("Month");
+	       int month = userInputInteger();
+	         if (month < 1 || month > 12) {
+	           System.out.println("Months are between 1 and 12");
+	           continue;
+	         }
+
+	       System.out.println("Day");
+	       int day = userInputInteger();
+	         if (day < 1 || day > 31) {
+	            System.out.println("Days are between 1 and 31");
+	            continue;
+	         }
+
+	       System.out.println("Year");
+	       int year = userInputInteger();
+	         if (year < -10000 || year > 10000) {
+	            System.out.println("Years are between -10000 and 10000");
+	            continue;
+	         }
+
+	        int y0 = year - (14 - month) / 12;
+	        int x = y0 + y0/4 - y0/100 +y0/400;
+	        int m0 = month + 12 * ((14 - month) / 12) - 2;
+	        int d0 = (day + x + 31 * m0 / 12) % 7;  
+	        //boolean c = 0 <= d0 <= 6;
+
+	          
+
+	        System.out.println("The day of the week is " + b);
+	    }
+
+	}
+	
 }
