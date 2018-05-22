@@ -1,6 +1,9 @@
 package com.bridgelabz.utility;
 
-import java.nio.file.attribute.UserPrincipalLookupService;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Util {
@@ -287,6 +290,12 @@ public class Util {
 		return arrayOfString;
 	}
 
+	/**
+	 *  guessing the number to enter true or false answer 
+	 * @param low
+	 * @param high
+	 * @return
+	 */
 	public int searchGuessNumber(int low, int high) {
 		if (high - low == 1) {
 			return low;
@@ -294,13 +303,148 @@ public class Util {
 		int mid = low + (high - low) / 2;
 		System.out.println("Is it less than " + mid);
 		if (userInputBoolean()) {
-			return searchGuessNumber(mid,high);
-		}
-		else {
-		return searchGuessNumber(low,mid);
+			return searchGuessNumber(low, mid);
+		} else {
+			return searchGuessNumber(mid, high);
 		}
 	}
-	public void searchWord(String searchString) {
+
+	/**
+	 * @param searchString
+	 * @throws IOException
+	 */
+	public void searchWord(String searchString) throws IOException {
+		String filePath = "/home/bridgelabz/sasi-txtdocuments/names.txt";
+		String line = "";
+		String lineNumber = "";
+		int count = 0;
+		int countLine = 0;
+		int countBuffer = 0;
+		try {
+			BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
+			while ((line = bufferedReader.readLine()) != null) {
+				countLine++;
+				String[] words = line.split(",");
+				for (String word : words) {
+					if (word.equals(searchString)) {
+						count++;
+						countBuffer++;
+					}
+				}
+				if (countBuffer > 0) {
+					countBuffer = 0;
+					lineNumber += countLine;
+				}
+
+			}
+
+			bufferedReader.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		System.out.println("search string found " + count + "times");
+		System.out.println("Word found at: " + lineNumber);
+
+	}
+
+	/**
+	 * @param inputArray
+	 * @param low
+	 * @param mid
+	 * @param high
+	 */
+	public static void merge(String inputArray[], int low, int mid, int high) {
+
+		// Find sizes of two sub arrays to be merged
+		int size1 = mid - low + 1;
+		int size2 = high - mid;
+
+		// Create temperary arrays
+		String leftArray[] = new String[size1];
+		String rightArray[] = new String[size2];
+
+		/* Copy data to temprary arrays */
+		for (int i = 0; i < size1; ++i)
+			leftArray[i] = inputArray[low + i];
+		for (int j = 0; j < size2; ++j)
+			rightArray[j] = inputArray[mid + 1 + j];
+
+		/* Merge the temp arrays */
+
+		// Initial indexes of first and second sub arrays
+		int i = 0, j = 0;
+
+		// Initial index of merged sub array array
+		int k = low;
+		while (i < size1 && j < size2) {
+			if (leftArray[i].compareTo(rightArray[j]) <= 0) {
+				inputArray[k] = leftArray[i];
+				i++;
+			} else {
+				inputArray[k] = rightArray[j];
+				j++;
+			}
+			k++;
+		}
+
+		/* Copy remaining elements of L[] if any */
+		while (i < size1) {
+			inputArray[k] = leftArray[i];
+			i++;
+			k++;
+		}
+
+		/* Copy remaining elements of R[] if any */
+		while (j < size2) {
+			inputArray[k] = rightArray[j];
+			j++;
+			k++;
+		}
+	}
+
+	/**
+	 * @param inputArray
+	 * @param low
+	 * @param high
+	 */
+	public static void sort(String inputArray[], int low, int high) {
+		if (low < high) {
+			// Find the middle point
+			int mid = (low + high) / 2;
+
+			// Sort first and second halves
+			sort(inputArray, low, mid);
+			sort(inputArray, mid + 1, high);
+
+			// Merge the sorted halves
+			merge(inputArray, low, mid, high);
+		}
+	}
+
+	/**
+	 * @param inputArray
+	 */
+	public static void printArray(String[] inputArray) {
+		for (int i = 0; i < inputArray.length; ++i)
+			System.out.print(inputArray[i] + " ");
+		System.out.println();
+	}
+
+	public static void findDenoomination(int[] notesArray, int amount) {
+		int[] result=new int[notesArray.length];
+		for (int i = 0; i < notesArray.length; i++) {
+			while(amount>=notesArray[i]) {
+				amount-=notesArray[i];
+				result[i]=notesArray[i];	
+			}
+			
+		}
+		for (int i = 0; i < result.length; i++) {
+			System.out.println(result[i]);
+		}
 		
 	}
+	
+	
+
 }

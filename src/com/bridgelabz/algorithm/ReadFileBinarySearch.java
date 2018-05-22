@@ -1,29 +1,17 @@
 package com.bridgelabz.algorithm;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+
+import com.bridgelabz.utility.Util;
 
 public class ReadFileBinarySearch {
 
-	public static void main(String[] args) {
-		FileReader fileReader = null;
-		try {
-			fileReader = new FileReader("/home/bridgelabz/sasi-txtdocuments/names.txt");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		// printStrings;
-		int i;
-		try {
-			while ((i = fileReader.read()) != -1) {
-				System.out.print((char) i);
-
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+	public static void main(String[] args) throws IOException {
+		Util util=new Util();
+		System.out.println("Enter a search String");
+		String searchString=util.userInputString();
+		util.searchWord(searchString);
+		
 	}
 
 }
