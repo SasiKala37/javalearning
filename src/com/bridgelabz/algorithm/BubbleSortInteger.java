@@ -1,3 +1,11 @@
+/**
+ * Purpose: To sort the integers in ascending order using bubble sort technique
+ * 
+ * @author sasikala
+ * @version 1.0
+ * @since 22/05/2018
+ */
+
 package com.bridgelabz.algorithm;
 
 import com.bridgelabz.utility.Util;

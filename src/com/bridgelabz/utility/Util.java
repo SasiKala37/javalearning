@@ -88,8 +88,8 @@ public class Util {
 	public static boolean checkString(String firstString, String secondString) {
 		char[] charString1 = firstString.toCharArray();
 		char[] charString2 = secondString.toCharArray();
-		charString1 = sort(charString1);
-		charString2 = sort(charString2);
+		charString1 = sortChar(charString1);
+		charString2 = sortChar(charString2);
 		for (int i = 0; i < charString2.length; i++) {
 			if (charString1[i] != charString2[i]) {
 				return false;
@@ -104,7 +104,7 @@ public class Util {
 	 * @param charString
 	 * @return
 	 */
-	public static char[] sort(char charString[]) {
+	public static char[] sortChar(char charString[]) {
 		for (int i = 0; i < charString.length; i++) {
 			for (int j = i + 1; j < charString.length; j++) {
 				if (charString[i] > charString[j]) {
@@ -118,30 +118,42 @@ public class Util {
 	}
 
 	/**
-	 * find the prime numbers in the between the given range 0-1000
+	 * find the prime numbers in the between the given range 1-1000
 	 * 
 	 * @param higherLimit
 	 */
 	public static void findPrimeNumbers(int higherLimit) {
-		int count;
+		int count; // int k=0;
+		// int[] primeArray=new int[k];
 		for (int i = 1; i <= higherLimit; i++) {
 			count = 0;
 			for (int j = 1; j <= higherLimit; j++) {
 				if (i % j == 0)
 					count++;
 			}
-			if (count == 2)
+			if (count == 2) {
 				System.out.println(i);
+				// primeArray[k++]=i;
+			}
+			// isPalindrome(primeArray);
 		}
-
 	}
 
-	public static void isPalindrome(int higherLimit) {
-		int lowerLimit = 0;
-		// int reverseNumber=0;
-		while (lowerLimit <= higherLimit) {
-			// reverseNumber = reverseNumber*10 + num%10;
-			// num = num/10;
+	/**
+	 * check the given primeArray elements whether palindrome or not
+	 * 
+	 * @param primeArray
+	 */
+	public static void isPalindrome(int[] primeArray) {
+		int reverseNumber = 0;
+		for (int i = 0; i < primeArray.length && primeArray[i] != 0; i++) {
+			while (primeArray[i] > 0) {
+				reverseNumber = reverseNumber * 10 + primeArray[i] % 10;
+				primeArray[i] = primeArray[i] / 10;
+			}
+			if (reverseNumber == primeArray[i]) {
+				System.out.println("palindrome" + reverseNumber);
+			}
 		}
 	}
 
@@ -162,14 +174,14 @@ public class Util {
 			} else if (arrayOfIntegers[mid] > searchElement) {
 				return binarySearchInt(arrayOfIntegers, low, mid - 1, searchElement);
 			} else {
-				return binarySearchInt(arrayOfIntegers, low, mid + 1, searchElement);
+				return binarySearchInt(arrayOfIntegers, mid + 1, high, searchElement);
 			}
 		}
 		return -1;
 	}
 
 	/**
-	 * Sorting the array of integers using bubble sort technique
+	 * Sorting the array of integers in ascending order using bubble sort technique
 	 * 
 	 * @param lengthOfTheArray
 	 */
@@ -191,13 +203,11 @@ public class Util {
 			}
 
 		}
-		for (int i = 0; i < arrayOfIntegers.length; i++) {
-			System.out.print(arrayOfIntegers[i] + "  ");
-		}
+
 	}
 
 	/**
-	 * Sorting the array of integers using insertion sort technique
+	 * Sorting the array of integers ascending order using insertion sort technique
 	 * 
 	 * @param lengthOfTheArray
 	 */
@@ -226,7 +236,7 @@ public class Util {
 	}
 
 	/**
-	 * Searching the array of strings using binary search technique
+	 * Searching the array of strings in ascending using binary search technique
 	 * 
 	 * @param arrayOfString
 	 * @param low
@@ -235,7 +245,6 @@ public class Util {
 	 * @return
 	 */
 	public static boolean binarySearchString(String[] arrayOfString, int low, int high, String searchString) {
-		// arrayOfString=bubbleSortForString(arrayOfString);
 
 		if (low <= high) {
 			int mid = low + (high - low) / 2;
@@ -244,7 +253,7 @@ public class Util {
 			} else if (arrayOfString[mid].compareTo(searchString) > 0) {
 				return binarySearchString(arrayOfString, low, mid - 1, searchString);
 			} else {
-				return binarySearchString(arrayOfString, low, mid + 1, searchString);
+				return binarySearchString(arrayOfString, mid + 1, high, searchString);
 			}
 
 		}
@@ -252,12 +261,13 @@ public class Util {
 	}
 
 	/**
-	 * Sorting the array of strings using bubble sort technique
+	 * Sorting the array of strings in alphabetical order using bubble sort
+	 * technique
 	 * 
 	 * @param arrayOfString
 	 * @return
 	 */
-	public static String[] bubbleSortForString(String[] arrayOfString) {
+	public static void bubbleSortForString(String[] arrayOfString) {
 		for (int i = 0; i < arrayOfString.length - 1; i++) {
 			for (int j = 0; j < arrayOfString.length - i - 1; j++) {
 				if (arrayOfString[j + 1].compareTo(arrayOfString[j]) < 0) {
@@ -267,11 +277,12 @@ public class Util {
 				}
 			}
 		}
-		return arrayOfString;
+		System.out.println("sorted Strings are:");
+		printArray(arrayOfString);
 	}
 
 	/**
-	 * Sorting the array of strings using bubble sort technique
+	 * Sorting the array of strings alphabetical order using bubble sort technique
 	 * 
 	 * @param arrayOfString
 	 * @return
@@ -319,39 +330,30 @@ public class Util {
 	public void searchWord(String searchString) throws IOException {
 		String filePath = "/home/bridgelabz/sasi-txtdocuments/names.txt";
 		String line = "";
-		String lineNumber = "";
-		int count = 0;
-		int countLine = 0;
-		int countBuffer = 0;
+		boolean result = false;
+
 		try {
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
 			while ((line = bufferedReader.readLine()) != null) {
-				countLine++;
 				String[] words = line.split(",");
-				for (String word : words) {
-					if (word.equals(searchString)) {
-						count++;
-						countBuffer++;
-					}
-				}
-				if (countBuffer > 0) {
-					countBuffer = 0;
-					lineNumber += countLine;
-				}
-
+				bubbleSortForString(words);
+				result = binarySearchString(words, 0, words.length - 1, searchString);
+			}
+			if (result) {
+				System.out.println("search element found");
+			} else {
+				System.out.println("Search elements not found");
 			}
 
 			bufferedReader.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		System.out.println("search string found " + count + "times");
-		System.out.println("Word found at: " + lineNumber);
 
 	}
 
 	/**
-	 * Merge the two sub arrays
+	 * Merge the two sorted sub arrays
 	 * 
 	 * @param inputArray
 	 * @param low
@@ -374,7 +376,7 @@ public class Util {
 		for (int j = 0; j < size2; ++j)
 			rightArray[j] = inputArray[mid + 1 + j];
 
-		/* Merge the temp arrays */
+		/* Merge the temperary arrays */
 
 		// Initial indexes of first and second sub arrays
 		int i = 0, j = 0;
@@ -408,7 +410,7 @@ public class Util {
 	}
 
 	/**
-	 * Sort the String
+	 * Sort the String in ascending order
 	 * 
 	 * @param inputArray
 	 * @param low
@@ -439,19 +441,43 @@ public class Util {
 		System.out.println();
 	}
 
-	public static void findDenoomination(int[] notesArray, int amount) {
-		int[] result = new int[notesArray.length];
-		for (int i = 0; i < notesArray.length; i++) {
-			while (amount >= notesArray[i]) {
-				amount -= notesArray[i];
-				result[i] = notesArray[i];
+	/**
+	 * generate the notes in descending order
+	 * 
+	 * @param num
+	 */
+	public static void generateChange(int amount) {
+		int[] ar = { 1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000 };
+		int temp = 0;
+		int index = 0;
+		for (int i = 0; i < ar.length; i++) {
+			if (amount == ar[i]) {
+				System.out.println("The amount note ");
+				System.out.println(amount);
+				return;
+			}
+		}
+
+		for (int i = 0; i < ar.length; i++) {
+			for (int j = i + 1; j < ar.length; j++) {
+				if (amount < ar[j] && amount > ar[i] || amount > ar[i]) {
+					temp = ar[i];
+					index = i;
+					break;
+				}
+			}
+		}
+
+		System.out.print(temp + "  ");
+		int goal = amount - temp;
+		for (int i = index; i >= 0; i--) {
+			if (goal == ar[i]) {
+				System.out.print(ar[i] + "  ");
+				return;
 			}
 
 		}
-		for (int i = 0; i < result.length; i++) {
-			System.out.println(result[i]);
-		}
-
+		generateChange(goal);
 	}
 
 	/**
@@ -465,7 +491,7 @@ public class Util {
 	}
 
 	/**
-	 * convertfahrenheit to celsius temperature
+	 * convert fahrenheit to celsius temperature
 	 * 
 	 * @param temperatureInFahrenheit
 	 * @return
@@ -474,6 +500,15 @@ public class Util {
 		return (temperatureInFahrenheit - 32) * 5 / 9;
 	}
 
+	/**
+	 * calculate the monthly payment using given formula
+	 * payment=(p*r)/(1-(1+r)^(-n))
+	 * 
+	 * @param principleAmount
+	 * @param rateOfIntrest
+	 * @param year
+	 * @return
+	 */
 	public static double paymentCalculation(double principleAmount, double rateOfIntrest, double year) {
 		double r = rateOfIntrest / (12 * 100);
 		double n = 12 * year;
@@ -482,6 +517,11 @@ public class Util {
 
 	}
 
+	/**
+	 * calculate the square root of non negative number
+	 * 
+	 * @param c
+	 */
 	public static void sqrt(double c) {
 		double epsilon = 1e-15;
 		double t = c;
@@ -491,43 +531,158 @@ public class Util {
 		}
 		System.out.println(t);
 	}
-	
-	public  void caleder() {
+
+	/**
+	 * check whether the given input is correct or not then calculate the day of
+	 * week
+	 * 
+	 * @param day
+	 * @param month
+	 * @param year
+	 */
+	public static void dayOfWeek(int day, int month, int year) {
+
 		boolean keepGoing = true;
+		while (keepGoing) {
+			if ((month <= 1 || month >= 12)) {
+				System.out.println("Months are between 1 and 12");
+				continue;
+			}
 
-	     while(keepGoing) {
-	       System.out.println("Month");
-	       int month = userInputInteger();
-	         if (month < 1 || month > 12) {
-	           System.out.println("Months are between 1 and 12");
-	           continue;
-	         }
+			if (day < 1 || day > 31) {
+				System.out.println("Days are between 1 and 31");
+				continue;
+			}
 
-	       System.out.println("Day");
-	       int day = userInputInteger();
-	         if (day < 1 || day > 31) {
-	            System.out.println("Days are between 1 and 31");
-	            continue;
-	         }
+			if (year < -10000 || year > 10000) {
+				System.out.println("Years are between -10000 and 10000");
+				continue;
+			}
 
-	       System.out.println("Year");
-	       int year = userInputInteger();
-	         if (year < -10000 || year > 10000) {
-	            System.out.println("Years are between -10000 and 10000");
-	            continue;
-	         }
-
-	        int y0 = year - (14 - month) / 12;
-	        int x = y0 + y0/4 - y0/100 +y0/400;
-	        int m0 = month + 12 * ((14 - month) / 12) - 2;
-	        int d0 = (day + x + 31 * m0 / 12) % 7;  
-	        //boolean c = 0 <= d0 <= 6;
-
-	          
-
-	        System.out.println("The day of the week is " + b);
-	    }
+			int y0 = year - (14 - month) / 12;
+			int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
+			int m0 = month + 12 * ((14 - month) / 12) - 2;
+			int d0 = (day + x + 31 * m0 / 12) % 7;
+			String result = "";
+			switch (d0) {
+			case 0:
+				result += "sunday";
+				break;
+			case 1:
+				result += "monday";
+				break;
+			case 2:
+				result += "tuesday";
+				break;
+			case 3:
+				result += "wednesday";
+				break;
+			case 4:
+				result += "thursday";
+				break;
+			case 5:
+				result += "friday";
+				break;
+			case 6:
+				result += "satday";
+				break;
+			default:
+				System.out.println("Nothing");
+				break;
+			}
+			System.out.println("The day of the week is " + result);
+			keepGoing = false;
+		}
 
 	}
-	
+
+	/**
+	 * convert the decimal to binary
+	 * 
+	 * @param number
+	 * @return
+	 */
+	public static StringBuilder toBinary(int number) {
+		String paddingZero = "";
+
+		while (number != 0) {
+			int remainder = number % 2;
+			paddingZero = remainder + paddingZero;
+			number = number / 2;
+		}
+
+		int size = paddingZero.length();
+		int temp = size;
+		while (size % 4 != 0) {
+			size++;
+		}
+		int diff = size - temp;
+		for (int i = 1; i <= diff; i++) {
+			paddingZero = '0' + paddingZero;
+		}
+
+		int count = 0;
+		StringBuilder sb = new StringBuilder(paddingZero);
+		for (int i = 0; i < paddingZero.length(); i++) {
+			count++;
+			if (count == 5) {
+				sb.insert(i, " ");
+				count = 0;
+			}
+		}
+		return sb;
+	}
+
+	/**
+	 * swap the two nibbles
+	 * 
+	 * @param number
+	 * @return
+	 */
+	public static int binary(int number) {
+		if (number < 127) {
+			StringBuilder stringBuilder = toBinary(number);
+			System.out.println(stringBuilder);
+			String newString = stringBuilder.toString();
+			System.out.println(newString);
+			int size = newString.length();
+			String[] array = new String[size];
+			array = newString.split(" ");
+
+			String temp = array[0];
+			array[0] = array[1];
+			array[1] = temp;
+			String stringBack = "";
+			for (int i = 0; i < array.length; i++) {
+				stringBack += array[i];
+			}
+			stringBack.replaceAll("\\s", "");
+			System.out.println("After swapping: ");
+			System.out.println(stringBack);
+			int decimal = binaryToDecimal(stringBack);
+
+			return decimal;
+		} else
+			return -1;
+	}
+
+	/**
+	 * Method to convert binary to decimal
+	 * 
+	 * @param string
+	 * @return
+	 */
+	public static int binaryToDecimal(String string) {
+		int number = Integer.parseInt(string);
+		int count = 0;
+		int out = 0;
+		while (number != 0) {
+			int rem = number % 10;
+			out = (int) (out + rem * Math.pow(2, count++));
+			number = number / 10;
+
+		}
+		return out;
+
+	}
 }

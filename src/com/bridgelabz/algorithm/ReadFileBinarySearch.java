@@ -1,3 +1,12 @@
+/**
+ * Purpose:To read a words from file and convert to character array then print
+ * 		whether the search element is found or not using binary search technique 
+ * 
+ * @author sasikala
+ * @version 1.0
+ * @since 22/05/2018
+ */
+
 package com.bridgelabz.algorithm;
 
 import java.io.IOException;

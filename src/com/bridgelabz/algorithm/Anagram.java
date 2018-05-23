@@ -1,3 +1,10 @@
+/**
+ * Purpose: print the given Strings are anagram or not 
+ * 
+ * @author sasikala
+ * @version 1.0
+ * @since 21/05/2018
+ */
 package com.bridgelabz.algorithm;
 
 import com.bridgelabz.utility.Util;

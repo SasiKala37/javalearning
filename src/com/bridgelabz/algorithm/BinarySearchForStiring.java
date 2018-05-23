@@ -1,3 +1,11 @@
+/**
+ * Purpose:Print the search element whether found or not using binary search 
+ * 
+ * @author sasikala
+ * @version 1.0
+ * @since 22/05/2018
+ */
+
 package com.bridgelabz.algorithm;
 
 import com.bridgelabz.utility.Util;
@@ -11,18 +19,21 @@ public class BinarySearchForStiring {
 		for(int i=0;i<arrayOfString.length;i++) {
 			arrayOfString[i]=util.userInputString();
 		}
-		 String[] sortedArray=Util.bubbleSortForString(arrayOfString);
+		Util.bubbleSortForString(arrayOfString);
 		System.out.println("Enter search element");
 		String searchString=util.userInputString();
 		int low=0;
-		int high=sortedArray.length-1;
-		boolean result=Util.binarySearchString(sortedArray, low, high, searchString);
+		int high=arrayOfString.length-1;
+		long startTime=System.nanoTime();
+		boolean result=Util.binarySearchString(arrayOfString, low, high, searchString);
+		long endTime=System.nanoTime()-startTime;
 		if(result) {
 			System.out.println("search string found");
 		}
 		else {
 			System.out.println("Search string not found");
 		}
+		System.out.println("Elapsed time:"+endTime);
 	}
 
 }
