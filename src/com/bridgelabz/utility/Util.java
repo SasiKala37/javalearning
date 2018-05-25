@@ -33,16 +33,18 @@ public class Util {
 	 * @return
 	 */
 	public static boolean isAnagram(String firstString, String secondString) {
-		firstString = removeSpace(firstString);
-		secondString = removeSpace(secondString);
+		//firstString = removeSpace(firstString);
+		//secondString = removeSpace(secondString);
 		if (firstString.length() != secondString.length()) {
 			return false;
-		} else {
+		} 
 			firstString = toLowerCase(firstString);
+			System.out.println(firstString);
 			secondString = toLowerCase(secondString);
+			System.out.println(secondString);
 			boolean result = checkString(firstString, secondString);
 			return result;
-		}
+		
 	}
 
 	/**
@@ -54,11 +56,14 @@ public class Util {
 	public static String removeSpace(String inputString) {
 		char[] charString = inputString.toCharArray();
 		inputString = "";
+		System.out.println("Space removed String");
 		for (int i = 0; i < charString.length; i++) {
 			if (charString[i] != ' ') {
 				inputString = inputString + charString[i];
 			}
+			//System.out.print(charString[i]);
 		}
+		//System.out.println();
 		return inputString;
 	}
 
@@ -70,11 +75,14 @@ public class Util {
 	 */
 	public static String toLowerCase(String inputString) {
 		char[] charString = inputString.toCharArray();
+		System.out.println("Changed Lower case String");
 		for (int i = 0; i < charString.length; i++) {
 			if (charString[i] >= 65 || charString[i] <= 91) {
 				charString[i] += 32;
 			}
+		//	System.out.print(charString[i]);
 		}
+		//System.out.println();
 		return new String(charString);
 	}
 
@@ -88,8 +96,9 @@ public class Util {
 	public static boolean checkString(String firstString, String secondString) {
 		char[] charString1 = firstString.toCharArray();
 		char[] charString2 = secondString.toCharArray();
-		charString1 = sortChar(charString1);
-		charString2 = sortChar(charString2);
+		 String lowerCaseString1=sortChar(charString1);
+		 String loweraseString2=sortChar(charString2);
+		 System.out.println("LowerCase String:"+lowerCaseString1+" "+loweraseString2);;
 		for (int i = 0; i < charString2.length; i++) {
 			if (charString1[i] != charString2[i]) {
 				return false;
@@ -104,17 +113,20 @@ public class Util {
 	 * @param charString
 	 * @return
 	 */
-	public static char[] sortChar(char charString[]) {
+	public static String sortChar(char charString[]) {
+		System.out.println("Sorted String");
+		//String result="";
 		for (int i = 0; i < charString.length; i++) {
-			for (int j = i + 1; j < charString.length; j++) {
-				if (charString[i] > charString[j]) {
+			for (int j = i+1; j < charString.length; j++) {
+				if (charString[i] >charString[j]) {
 					char temp = charString[i];
 					charString[i] = charString[j];
 					charString[j] = temp;
 				}
+				//System.out.println(charString[j]);
 			}
 		}
-		return charString;
+		return new String(charString);
 	}
 
 	/**
@@ -338,14 +350,15 @@ public class Util {
 				String[] words = line.split(",");
 				bubbleSortForString(words);
 				result = binarySearchString(words, 0, words.length - 1, searchString);
-			}
-			if (result) {
-				System.out.println("search element found");
-			} else {
-				System.out.println("Search elements not found");
-			}
 
-			bufferedReader.close();
+				if (result) {
+					System.out.println("search element found");
+				} else {
+					System.out.println("Search elements not found");
+				}
+
+				bufferedReader.close();
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -532,7 +545,7 @@ public class Util {
 		System.out.println(t);
 	}
 
-	/**
+	/***
 	 * check whether the given input is correct or not then calculate the day of
 	 * week
 	 * 
