@@ -133,7 +133,8 @@ public class Utility {
 	 */
 	public void primeFactors(int N) {
 		for (int i = 2; i * i <= N; i++) {
-			while (N % i == 0) {
+			int result=N % i ;
+			while (result== 0) {
 				System.out.print(i + "  ");
 				N = N / i;
 			}
@@ -234,16 +235,16 @@ public class Utility {
 		int wins = 0; // total number of games won
 
 		for (int t = 0; t < numberOfTrails; t++) {
-
-			while (stake > 0 && stake < goal) {
+			int cash=stake;
+			while (cash > 0 && cash < goal) {
 				bets++;
 				if (Math.random() < 0.5) {
-					stake++;
+					cash++;
 				} else {
-					stake--;
+					cash--;
 				}
 			}
-			if (stake == goal) {
+			if (cash == goal) {
 				wins++;
 			}
 		}
