@@ -22,7 +22,7 @@ public class WindChill {
 		String myMessage= "Wind chill: " + windChill;
 			System.out.println(myMessage);
 		} else {
-			System.out.println("formula is not valid");
+			System.out.println("values is not valid");
 		}
 	}
 }
